@@ -21,10 +21,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wso2.extension.siddhi.execution</groupId>
+        <groupId>org.wso2.extension.siddhi.execution.sentiment</groupId>
         <artifactId>siddhi-execution-sentiment-parent</artifactId>
         <version>3.1.3-SNAPSHOT</version>
-        <relativePath>../component/pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>siddhi-execution-sentiment-feature</artifactId>
@@ -35,7 +35,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.wso2.extension.siddhi.execution</groupId>
+            <groupId>org.wso2.extension.siddhi.execution.sentiment</groupId>
             <artifactId>siddhi-execution-sentiment</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -65,7 +65,7 @@
                             </adviceFile>
                             <bundles>
                                 <bundleDef>
-                                    org.wso2.extension.siddhi.execution:siddhi-execution-sentiment
+                                    org.wso2.extension.siddhi.execution.sentiment:siddhi-execution-sentiment
                                 </bundleDef>
                             </bundles>
                         </configuration>
