@@ -17,11 +17,11 @@
  */
 package org.wso2.extension.siddhi.execution.sentiment;
 
-import junit.framework.Assert;
 import org.apache.log4j.Logger;
-import org.junit.Before;
-import org.junit.Test;
-import org.wso2.siddhi.core.ExecutionPlanRuntime;
+import org.testng.AssertJUnit;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.wso2.siddhi.core.SiddhiAppRuntime;
 import org.wso2.siddhi.core.SiddhiManager;
 import org.wso2.siddhi.core.event.Event;
 import org.wso2.siddhi.core.query.output.callback.QueryCallback;
@@ -34,7 +34,7 @@ public class SentimentRateTestCase {
     private static Logger logger = Logger.getLogger(SentimentRateTestCase.class);
     private AtomicInteger count = new AtomicInteger(0);
 
-    @Before
+    @BeforeMethod
     public void init() {
         count.set(0);
     }
@@ -46,36 +46,36 @@ public class SentimentRateTestCase {
         String inStreamDefinition = "define stream inputStream (text string); ";
         String query = ("@info(name = 'query1') " + "from inputStream "
                 + "select sentiment:getRate(text) as isRate " + "insert into outputStream;");
-        ExecutionPlanRuntime executionPlanRuntime = siddhiManager
-                .createExecutionPlanRuntime(inStreamDefinition + query);
+        SiddhiAppRuntime SiddhiAppRuntime = siddhiManager
+                .createSiddhiAppRuntime(inStreamDefinition + query);
 
-        executionPlanRuntime.addCallback("query1", new QueryCallback() {
+        SiddhiAppRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 for (Event inEvent : inEvents) {
                     count.incrementAndGet();
                     if (count.get() == 1) {
-                        Assert.assertEquals(3, inEvent.getData(0));
+                        AssertJUnit.assertEquals(3, inEvent.getData(0));
                     }
                     if (count.get() == 2) {
-                        Assert.assertEquals(-3, inEvent.getData(0));
+                        AssertJUnit.assertEquals(-3, inEvent.getData(0));
                     }
                     if (count.get() == 3) {
-                        Assert.assertEquals(0, inEvent.getData(0));
+                        AssertJUnit.assertEquals(0, inEvent.getData(0));
                     }
                     if (count.get() == 4) {
-                        Assert.assertEquals(-2, inEvent.getData(0));
+                        AssertJUnit.assertEquals(-2, inEvent.getData(0));
                     }
                 }
             }
         });
-        InputHandler inputHandler = executionPlanRuntime.getInputHandler("inputStream");
-        executionPlanRuntime.start();
+        InputHandler inputHandler = SiddhiAppRuntime.getInputHandler("inputStream");
+        SiddhiAppRuntime.start();
         inputHandler.send(new Object[] { "Trump is a good person." });
         inputHandler.send(new Object[] { "Trump is a bad person." });
         inputHandler.send(new Object[] { "Trump is a good person. Trump is a bad person" });
         inputHandler.send(new Object[] { "What is wrong with these people" });
-        executionPlanRuntime.shutdown();
+        SiddhiAppRuntime.shutdown();
     }
 }

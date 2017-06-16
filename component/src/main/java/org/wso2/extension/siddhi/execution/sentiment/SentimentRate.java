@@ -20,11 +20,16 @@ package org.wso2.extension.siddhi.execution.sentiment;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.wso2.siddhi.core.config.ExecutionPlanContext;
+import org.wso2.siddhi.annotation.Example;
+import org.wso2.siddhi.annotation.Extension;
+import org.wso2.siddhi.annotation.ReturnAttribute;
+import org.wso2.siddhi.annotation.util.DataType;
+import org.wso2.siddhi.core.config.SiddhiAppContext;
 import org.wso2.siddhi.core.executor.ExpressionExecutor;
 import org.wso2.siddhi.core.executor.function.FunctionExecutor;
+import org.wso2.siddhi.core.util.config.ConfigReader;
 import org.wso2.siddhi.query.api.definition.Attribute;
-import org.wso2.siddhi.query.api.exception.ExecutionPlanValidationException;
+import org.wso2.siddhi.query.api.exception.SiddhiAppValidationException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,6 +38,18 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Sentiment Rate Implementation
+ */
+@Extension(
+        name = "getRate",
+        namespace = "sentiment",
+        description = "TBD",
+        returnAttributes = @ReturnAttribute(
+                description = "TBD",
+                type = {DataType.INT}),
+        examples = @Example(description = "TBD", syntax = "TBD")
+)
 public class SentimentRate extends FunctionExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SentimentRate.class);
     private Map<String, Integer> affinWordMap;
@@ -64,25 +81,26 @@ public class SentimentRate extends FunctionExecutor {
     }
 
     @Override
-    public Object[] currentState() {
+    public Map<String, Object> currentState() {
         // No need to maintain a state.
         return null;
     }
 
     @Override
-    public void restoreState(Object[] state) {
+    public void restoreState(Map<String, Object> map) {
         // No need to maintain a state
     }
 
     @Override
-    protected void init(ExpressionExecutor[] attributeExpressionExecutors, ExecutionPlanContext executionPlanContext) {
+    protected void init(ExpressionExecutor[] attributeExpressionExecutors, ConfigReader configReader,
+                        SiddhiAppContext SiddhiAppContext) {
         if (attributeExpressionExecutors.length != 1) {
             throw new IllegalArgumentException(
                     "Invalid no of arguments passed to sentiment:getRate() function, "
                             + "required 1, but found " + attributeExpressionExecutors.length);
         }
         if (attributeExpressionExecutors[0].getReturnType() != Attribute.Type.STRING) {
-            throw new ExecutionPlanValidationException("First parameter should be of type string. But found "
+            throw new SiddhiAppValidationException("First parameter should be of type string. But found "
                     + attributeExpressionExecutors[0].getReturnType());
         }
     }
