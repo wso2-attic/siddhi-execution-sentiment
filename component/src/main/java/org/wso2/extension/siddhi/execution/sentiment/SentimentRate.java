@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.siddhi.annotation.Example;
 import org.wso2.siddhi.annotation.Extension;
+import org.wso2.siddhi.annotation.Parameter;
 import org.wso2.siddhi.annotation.ReturnAttribute;
 import org.wso2.siddhi.annotation.util.DataType;
 import org.wso2.siddhi.core.config.SiddhiAppContext;
@@ -44,11 +45,17 @@ import java.util.Map;
 @Extension(
         name = "getRate",
         namespace = "sentiment",
-        description = "TBD",
+        description = "This provides the sentiment value for a given string as per Affin word list",
+        parameters = {
+                @Parameter(name = "text",
+                        description = "The input text to find the sentiment value.",
+                        type = {DataType.STRING})
+        },
         returnAttributes = @ReturnAttribute(
-                description = "TBD",
+                description = "Returns the sentiment value for the provided string",
                 type = {DataType.INT}),
-        examples = @Example(description = "TBD", syntax = "TBD")
+        examples = @Example(description = "This will return the sentiment value for given input string by referring " +
+                "the Afinn word list. In this case output will be 3 .", syntax = "getRate('George is a good person')")
 )
 public class SentimentRate extends FunctionExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SentimentRate.class);
