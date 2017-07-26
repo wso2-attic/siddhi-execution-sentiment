@@ -48,14 +48,15 @@ import java.util.Map;
         description = "This provides the sentiment value for a given string as per Affin word list",
         parameters = {
                 @Parameter(name = "text",
-                        description = "The input text to find the sentiment value.",
+                        description = "The input text for which the sentiment value should be derived.",
                         type = {DataType.STRING})
         },
         returnAttributes = @ReturnAttribute(
-                description = "Returns the sentiment value for the provided string",
+                description = "This returns the sentiment value for the provided string",
                 type = {DataType.INT}),
-        examples = @Example(description = "This will return the sentiment value for given input string by referring " +
-                "the Afinn word list. In this case output will be 3 .", syntax = "getRate('George is a good person')")
+        examples = @Example(description = "This returns the sentiment value for the given input string by referring " +
+                "the Afinn word list. In this scenario, the output is 3 .",
+                syntax = "getRate('George is a good person')")
 )
 public class SentimentRate extends FunctionExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SentimentRate.class);
