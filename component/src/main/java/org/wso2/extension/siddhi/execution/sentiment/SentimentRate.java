@@ -15,7 +15,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 package org.wso2.extension.siddhi.execution.sentiment;
 
 import org.slf4j.Logger;
@@ -36,11 +35,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Sentiment Rate Implementation
+ * Sentiment Rate Implementation.
  */
 @Extension(
         name = "getRate",
@@ -70,7 +70,7 @@ public class SentimentRate extends FunctionExecutor {
     @Override
     public void start() {
         // Load affinwords.txt in to affinWordMap
-        affinWordMap = new HashMap<String, Integer>();
+        affinWordMap = new HashMap<>();
         String[] split;
         try {
             String[] wordBuckets = getWordsBuckets("affinwords.txt");
@@ -101,7 +101,7 @@ public class SentimentRate extends FunctionExecutor {
 
     @Override
     protected void init(ExpressionExecutor[] attributeExpressionExecutors, ConfigReader configReader,
-                        SiddhiAppContext SiddhiAppContext) {
+                        SiddhiAppContext siddhiAppContext) {
         if (attributeExpressionExecutors.length != 1) {
             throw new IllegalArgumentException(
                     "Invalid no of arguments passed to sentiment:getRate() function, "
@@ -132,16 +132,18 @@ public class SentimentRate extends FunctionExecutor {
 
     private String[] getWordsBuckets(String fileName) throws IOException {
         StringBuilder textChunk = new StringBuilder();
-        try {
-            InputStream in = getClass().getResourceAsStream("/" + fileName);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        InputStream in = getClass().getResourceAsStream("/" + fileName);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
             String line;
+        try {
             while ((line = reader.readLine()) != null) {
                 textChunk.append(line).append("\n");
             }
             in.close();
-        } catch (Exception ex) {
-            LOGGER.error("Error Reading " + fileName);
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage() , e);
+        } finally {
+            reader.close();
         }
         return textChunk.toString().split(",");
     }
