@@ -30,6 +30,9 @@ import org.wso2.siddhi.core.util.EventPrinter;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Test cases.
+ */
 public class SentimentRateTestCase {
     private static Logger logger = Logger.getLogger(SentimentRateTestCase.class);
     private AtomicInteger count = new AtomicInteger(0);
@@ -46,10 +49,10 @@ public class SentimentRateTestCase {
         String inStreamDefinition = "define stream inputStream (text string); ";
         String query = ("@info(name = 'query1') " + "from inputStream "
                 + "select sentiment:getRate(text) as isRate " + "insert into outputStream;");
-        SiddhiAppRuntime SiddhiAppRuntime = siddhiManager
+        SiddhiAppRuntime siddhiAppRuntime = siddhiManager
                 .createSiddhiAppRuntime(inStreamDefinition + query);
 
-        SiddhiAppRuntime.addCallback("query1", new QueryCallback() {
+        siddhiAppRuntime.addCallback("query1", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
@@ -70,12 +73,12 @@ public class SentimentRateTestCase {
                 }
             }
         });
-        InputHandler inputHandler = SiddhiAppRuntime.getInputHandler("inputStream");
-        SiddhiAppRuntime.start();
+        InputHandler inputHandler = siddhiAppRuntime.getInputHandler("inputStream");
+        siddhiAppRuntime.start();
         inputHandler.send(new Object[] { "Trump is a good person." });
         inputHandler.send(new Object[] { "Trump is a bad person." });
         inputHandler.send(new Object[] { "Trump is a good person. Trump is a bad person" });
         inputHandler.send(new Object[] { "What is wrong with these people" });
-        SiddhiAppRuntime.shutdown();
+        siddhiAppRuntime.shutdown();
     }
 }
