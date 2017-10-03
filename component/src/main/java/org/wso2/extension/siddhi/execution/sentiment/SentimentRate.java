@@ -68,27 +68,6 @@ public class SentimentRate extends FunctionExecutor {
     }
 
     @Override
-    public void start() {
-        // Load affinwords.txt in to affinWordMap
-        affinWordMap = new HashMap<>();
-        String[] split;
-        try {
-            String[] wordBuckets = getWordsBuckets("affinwords.txt");
-            for (String bucket : wordBuckets) {
-                split = bucket.split(" ");
-                affinWordMap.put(split[0].trim(), Integer.parseInt(split[split.length - 1].trim()));
-            }
-        } catch (IOException e) {
-            LOGGER.error("Failed to load affinwords.txt file");
-        }
-    }
-
-    @Override
-    public void stop() {
-        // Nothing to do here
-    }
-
-    @Override
     public Map<String, Object> currentState() {
         // No need to maintain a state.
         return null;
@@ -110,6 +89,18 @@ public class SentimentRate extends FunctionExecutor {
         if (attributeExpressionExecutors[0].getReturnType() != Attribute.Type.STRING) {
             throw new SiddhiAppValidationException("First parameter should be of type string. But found "
                     + attributeExpressionExecutors[0].getReturnType());
+        }
+        // Load affinwords.txt in to affinWordMap
+        affinWordMap = new HashMap<>();
+        String[] split;
+        try {
+            String[] wordBuckets = getWordsBuckets("affinwords.txt");
+            for (String bucket : wordBuckets) {
+                split = bucket.split(" ");
+                affinWordMap.put(split[0].trim(), Integer.parseInt(split[split.length - 1].trim()));
+            }
+        } catch (IOException e) {
+            LOGGER.error("Failed to load affinwords.txt file");
         }
     }
 

@@ -11,7 +11,7 @@ Find some useful links below:
 
 ## Latest API Docs 
 
-Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-execution-sentiment/api/4.0.2-SNAPSHOT">4.0.2-SNAPSHOT</a>.
+Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-execution-sentiment/api/4.0.3-SNAPSHOT">4.0.3-SNAPSHOT</a>.
 
 ## How to use 
 
@@ -45,7 +45,7 @@ Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/si
 
 ## Features
 
-* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-execution-sentiment/api/4.0.2-SNAPSHOT/#getrate-function">getRate</a> *(<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#functions">Function</a>)*<br><div style="padding-left: 1em;"><p>This provides the sentiment value for a given string as per Affin word list</p></div>
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-execution-sentiment/api/4.0.3-SNAPSHOT/#getrate-function">getRate</a> *(<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#functions">Function</a>)*<br><div style="padding-left: 1em;"><p>This provides the sentiment value for a given string as per Affin word list</p></div>
 
 ## How to Contribute
  
