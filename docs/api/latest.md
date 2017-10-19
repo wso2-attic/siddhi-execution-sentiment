@@ -1,8 +1,8 @@
-# API Docs
+# API Docs - v4.0.4-SNAPSHOT
 
 ## Sentiment
 
-### getRate *(<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#functions">Function</a>)*
+### getRate *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#function">(Function)</a>*
 
 <p style="word-wrap: break-word">This provides the sentiment value for a given string as per Affin word list</p>
 
