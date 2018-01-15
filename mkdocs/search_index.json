@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "siddhi-execution-sentiment\n\n\nThe \nsiddhi-execution-sentiment extension\n is an extension to \nSiddhi\n that performs sentiment analysis using Afinn Wordlist-based approach.\n\n\nFind some useful links below:\n\n\n\n\nSource code\n\n\nReleases\n\n\nIssue tracker\n\n\n\n\nLatest API Docs\n\n\nLatest API Docs is \n4.0.2-SNAPSHOT\n.\n\n\nHow to use\n\n\nUsing the extension in \nWSO2 Stream Processor\n\n\n\n\n\n\nYou can use this extension in the latest \nWSO2 Stream Processor\n that is a part of \nWSO2 Analytics\n offering, with editor, debugger and simulation support. \n\n\n\n\n\n\nThis extension is shipped by default with WSO2 Stream Processor, if you wish to use an alternative version of this extension you can replace the component \njar\n that can be found in the \nSTREAM_PROCESSOR_HOME\n/lib\n directory.\n\n\n\n\n\n\nUsing the extension as a \njava library\n\n\n\n\nThis extension can be added as a maven dependency along with other Siddhi dependencies to your project.\n\n\n\n\n     \ndependency\n\n        \ngroupId\norg.wso2.extension.siddhi.execution.sentiment\n/groupId\n\n        \nartifactId\nsiddhi-execution-sentiment\n/artifactId\n\n        \nversion\nx.x.x\n/version\n\n     \n/dependency\n\n\n\n\n\nJenkins Build Status\n\n\n\n\n\n\n\n\n\n\nBranch\n\n\nBuild Status\n\n\n\n\n\n\n\n\n\n\nmaster\n\n\n\n\n\n\n\n\n\n\n\n\nFeatures\n\n\n\n\ngetRate\n \n(\nFunction\n)\nThis provides the sentiment value for a given string as per Affin word list\n\n\n\n\nHow to Contribute\n\n\n\n\n\n\nPlease report issues at \nGitHub Issue Tracker\n.\n\n\n\n\n\n\nSend your contributions as pull requests to \nmaster branch\n. \n\n\n\n\n\n\nContact us\n\n\n\n\n\n\nPost your questions with the \n\"Siddhi\"\n tag in \nStackoverflow\n. \n\n\n\n\n\n\nSiddhi developers can be contacted via the mailing lists:\n\n\nDevelopers List   : \ndev@wso2.org\n\n\nArchitecture List : \narchitecture@wso2.org\n\n\n\n\n\n\nSupport\n\n\n\n\n\n\nWe are committed to ensuring support for this extension in production. Our unique approach ensures that all support \nleverages our open development methodology and is provided by the very same engineers who build the technology. \n\n\n\n\n\n\nFor more details and to take advantage of this unique opportunity contact us via \nhttp://wso2.com/support/\n.", 
+            "text": "siddhi-execution-sentiment\n\n\nThe \nsiddhi-execution-sentiment extension\n is an extension to \nSiddhi\n that performs sentiment analysis using Afinn Wordlist-based approach.\n\n\nFind some useful links below:\n\n\n\n\nSource code\n\n\nReleases\n\n\nIssue tracker\n\n\n\n\nLatest API Docs\n\n\nLatest API Docs is \n4.0.11\n.\n\n\nHow to use\n\n\nUsing the extension in \nWSO2 Stream Processor\n\n\n\n\n\n\nYou can use this extension in the latest \nWSO2 Stream Processor\n that is a part of \nWSO2 Analytics\n offering, with editor, debugger and simulation support. \n\n\n\n\n\n\nThis extension is shipped by default with WSO2 Stream Processor, if you wish to use an alternative version of this extension you can replace the component \njar\n that can be found in the \nSTREAM_PROCESSOR_HOME\n/lib\n directory.\n\n\n\n\n\n\nUsing the extension as a \njava library\n\n\n\n\nThis extension can be added as a maven dependency along with other Siddhi dependencies to your project.\n\n\n\n\n     \ndependency\n\n        \ngroupId\norg.wso2.extension.siddhi.execution.sentiment\n/groupId\n\n        \nartifactId\nsiddhi-execution-sentiment\n/artifactId\n\n        \nversion\nx.x.x\n/version\n\n     \n/dependency\n\n\n\n\n\nJenkins Build Status\n\n\n\n\n\n\n\n\n\n\nBranch\n\n\nBuild Status\n\n\n\n\n\n\n\n\n\n\nmaster\n\n\n\n\n\n\n\n\n\n\n\n\nFeatures\n\n\n\n\ngetRate\n \n(\n(Function)\n)\nThis provides the sentiment value for a given string as per Affin word list\n\n\n\n\nHow to Contribute\n\n\n\n\n\n\nPlease report issues at \nGitHub Issue Tracker\n.\n\n\n\n\n\n\nSend your contributions as pull requests to \nmaster branch\n. \n\n\n\n\n\n\nContact us\n\n\n\n\n\n\nPost your questions with the \n\"Siddhi\"\n tag in \nStackoverflow\n. \n\n\n\n\n\n\nSiddhi developers can be contacted via the mailing lists:\n\n\nDevelopers List   : \ndev@wso2.org\n\n\nArchitecture List : \narchitecture@wso2.org\n\n\n\n\n\n\nSupport\n\n\n\n\n\n\nWe are committed to ensuring support for this extension in production. Our unique approach ensures that all support \nleverages our open development methodology and is provided by the very same engineers who build the technology. \n\n\n\n\n\n\nFor more details and to take advantage of this unique opportunity contact us via \nhttp://wso2.com/support/\n.", 
             "title": "Welcome to WSO2 Siddhi Execution Sentiment"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#latest-api-docs", 
-            "text": "Latest API Docs is  4.0.2-SNAPSHOT .", 
+            "text": "Latest API Docs is  4.0.11 .", 
             "title": "Latest API Docs"
         }, 
         {
@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/#features", 
-            "text": "getRate   ( Function ) This provides the sentiment value for a given string as per Affin word list", 
+            "text": "getRate   ( (Function) ) This provides the sentiment value for a given string as per Affin word list", 
             "title": "Features"
         }, 
         {
@@ -46,24 +46,44 @@
             "title": "Support"
         }, 
         {
-            "location": "/api/4.0.2-SNAPSHOT/", 
-            "text": "API Docs\n\n\nSentiment\n\n\ngetRate \n(\nFunction\n)\n\n\nThis provides the sentiment value for a given string as per Affin word list\n\n\n\nSyntax\n\n\nINT\n sentiment:getRate(\nSTRING\n text)\n\n\n\n\nQUERY PARAMETERS\n\n\n\n    \n\n        \nName\n\n        \nDescription\n\n        \nDefault Value\n\n        \nPossible Data Types\n\n        \nOptional\n\n        \nDynamic\n\n    \n\n    \n\n        \ntext\n\n        \nThe input text for which the sentiment value should be derived.\n\n        \n\n        \nSTRING\n\n        \nNo\n\n        \nNo\n\n    \n\n\n\n\nExamples\n\n\nEXAMPLE 1\n\n\ngetRate('George is a good person')\n\n\n\n\nThis returns the sentiment value for the given input string by referring the Afinn word list. In this scenario, the output is 3 .", 
-            "title": "4.0.2-SNAPSHOT"
+            "location": "/api/4.0.11/", 
+            "text": "API Docs - v4.0.11\n\n\nSentiment\n\n\ngetRate \n(Function)\n\n\nThis provides the sentiment value for a given string as per Affin word list\n\n\n\nSyntax\n\n\nINT\n sentiment:getRate(\nSTRING\n text)\n\n\n\n\nQUERY PARAMETERS\n\n\n\n    \n\n        \nName\n\n        \nDescription\n\n        \nDefault Value\n\n        \nPossible Data Types\n\n        \nOptional\n\n        \nDynamic\n\n    \n\n    \n\n        \ntext\n\n        \nThe input text for which the sentiment value should be derived.\n\n        \n\n        \nSTRING\n\n        \nNo\n\n        \nNo\n\n    \n\n\n\n\nExamples\n\n\nEXAMPLE 1\n\n\ngetRate('George is a good person')\n\n\n\n\nThis returns the sentiment value for the given input string by referring the Afinn word list. In this scenario, the output is 3 .", 
+            "title": "4.0.11"
         }, 
         {
-            "location": "/api/4.0.2-SNAPSHOT/#api-docs", 
+            "location": "/api/4.0.11/#api-docs-v4011", 
             "text": "", 
-            "title": "API Docs"
+            "title": "API Docs - v4.0.11"
         }, 
         {
-            "location": "/api/4.0.2-SNAPSHOT/#sentiment", 
+            "location": "/api/4.0.11/#sentiment", 
             "text": "", 
             "title": "Sentiment"
         }, 
         {
-            "location": "/api/4.0.2-SNAPSHOT/#getrate-function", 
+            "location": "/api/4.0.11/#getrate-function", 
             "text": "This provides the sentiment value for a given string as per Affin word list  Syntax  INT  sentiment:getRate( STRING  text)  QUERY PARAMETERS  \n     \n         Name \n         Description \n         Default Value \n         Possible Data Types \n         Optional \n         Dynamic \n     \n     \n         text \n         The input text for which the sentiment value should be derived. \n         \n         STRING \n         No \n         No \n       Examples  EXAMPLE 1  getRate('George is a good person')  This returns the sentiment value for the given input string by referring the Afinn word list. In this scenario, the output is 3 .", 
-            "title": "getRate (Function"
+            "title": "getRate (Function)"
+        }, 
+        {
+            "location": "/api/latest/", 
+            "text": "API Docs - v4.0.11\n\n\nSentiment\n\n\ngetRate \n(Function)\n\n\nThis provides the sentiment value for a given string as per Affin word list\n\n\n\nSyntax\n\n\nINT\n sentiment:getRate(\nSTRING\n text)\n\n\n\n\nQUERY PARAMETERS\n\n\n\n    \n\n        \nName\n\n        \nDescription\n\n        \nDefault Value\n\n        \nPossible Data Types\n\n        \nOptional\n\n        \nDynamic\n\n    \n\n    \n\n        \ntext\n\n        \nThe input text for which the sentiment value should be derived.\n\n        \n\n        \nSTRING\n\n        \nNo\n\n        \nNo\n\n    \n\n\n\n\nExamples\n\n\nEXAMPLE 1\n\n\ngetRate('George is a good person')\n\n\n\n\nThis returns the sentiment value for the given input string by referring the Afinn word list. In this scenario, the output is 3 .", 
+            "title": "latest"
+        }, 
+        {
+            "location": "/api/latest/#api-docs-v4011", 
+            "text": "", 
+            "title": "API Docs - v4.0.11"
+        }, 
+        {
+            "location": "/api/latest/#sentiment", 
+            "text": "", 
+            "title": "Sentiment"
+        }, 
+        {
+            "location": "/api/latest/#getrate-function", 
+            "text": "This provides the sentiment value for a given string as per Affin word list  Syntax  INT  sentiment:getRate( STRING  text)  QUERY PARAMETERS  \n     \n         Name \n         Description \n         Default Value \n         Possible Data Types \n         Optional \n         Dynamic \n     \n     \n         text \n         The input text for which the sentiment value should be derived. \n         \n         STRING \n         No \n         No \n       Examples  EXAMPLE 1  getRate('George is a good person')  This returns the sentiment value for the given input string by referring the Afinn word list. In this scenario, the output is 3 .", 
+            "title": "getRate (Function)"
         }, 
         {
             "location": "/license/", 
