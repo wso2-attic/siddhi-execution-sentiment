@@ -45,18 +45,19 @@ import java.util.Map;
 @Extension(
         name = "getRate",
         namespace = "sentiment",
-        description = "This provides the sentiment value for a given string as per Affin word list",
+        description = "This provides the sentiment value for a given string as per the AFINN word list.",
         parameters = {
                 @Parameter(name = "text",
                         description = "The input text for which the sentiment value should be derived.",
                         type = {DataType.STRING})
         },
         returnAttributes = @ReturnAttribute(
-                description = "This returns the sentiment value for the provided string",
+                description = "This returns the sentiment value for the provided string.",
                 type = {DataType.INT}),
-        examples = @Example(description = "This returns the sentiment value for the given input string by referring " +
-                "the Afinn word list. In this scenario, the output is 3 .",
-                syntax = "getRate('George is a good person')")
+        examples = @Example(
+                syntax = "getRate('George is a good person')",
+                description = "This returns the sentiment value for the given input string by referring " +
+                "to the AFINN word list. In this scenario, the output is 3.")
 )
 public class SentimentRate extends FunctionExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SentimentRate.class);
