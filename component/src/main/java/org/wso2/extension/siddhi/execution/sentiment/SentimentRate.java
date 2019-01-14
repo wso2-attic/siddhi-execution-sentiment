@@ -58,7 +58,6 @@ import java.util.Map;
                 syntax = "getRate('George is a good person')",
                 description = "This returns the sentiment value for the given input string by referring " +
                 "to the AFINN word list. In this scenario, the output is 3.")
-
 )
 public class SentimentRate extends FunctionExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SentimentRate.class);
