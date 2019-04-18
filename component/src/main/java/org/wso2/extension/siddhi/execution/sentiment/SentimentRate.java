@@ -17,19 +17,21 @@
  */
 package org.wso2.extension.siddhi.execution.sentiment;
 
+import io.siddhi.annotation.Example;
+import io.siddhi.annotation.Extension;
+import io.siddhi.annotation.Parameter;
+import io.siddhi.annotation.ReturnAttribute;
+import io.siddhi.annotation.util.DataType;
+import io.siddhi.core.config.SiddhiQueryContext;
+import io.siddhi.core.executor.ExpressionExecutor;
+import io.siddhi.core.executor.function.FunctionExecutor;
+import io.siddhi.core.util.config.ConfigReader;
+import io.siddhi.core.util.snapshot.state.State;
+import io.siddhi.core.util.snapshot.state.StateFactory;
+import io.siddhi.query.api.definition.Attribute;
+import io.siddhi.query.api.exception.SiddhiAppValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.wso2.siddhi.annotation.Example;
-import org.wso2.siddhi.annotation.Extension;
-import org.wso2.siddhi.annotation.Parameter;
-import org.wso2.siddhi.annotation.ReturnAttribute;
-import org.wso2.siddhi.annotation.util.DataType;
-import org.wso2.siddhi.core.config.SiddhiAppContext;
-import org.wso2.siddhi.core.executor.ExpressionExecutor;
-import org.wso2.siddhi.core.executor.function.FunctionExecutor;
-import org.wso2.siddhi.core.util.config.ConfigReader;
-import org.wso2.siddhi.query.api.definition.Attribute;
-import org.wso2.siddhi.query.api.exception.SiddhiAppValidationException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,31 +59,16 @@ import java.util.Map;
         examples = @Example(
                 syntax = "getRate('George is a good person')",
                 description = "This returns the sentiment value for the given input string by referring " +
-                "to the AFINN word list. In this scenario, the output is 3.")
+                        "to the AFINN word list. In this scenario, the output is 3.")
 )
 public class SentimentRate extends FunctionExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SentimentRate.class);
     private Map<String, Integer> affinWordMap;
 
     @Override
-    public Attribute.Type getReturnType() {
-        return Attribute.Type.INT;
-    }
-
-    @Override
-    public Map<String, Object> currentState() {
-        // No need to maintain a state.
-        return null;
-    }
-
-    @Override
-    public void restoreState(Map<String, Object> map) {
-        // No need to maintain a state
-    }
-
-    @Override
-    protected void init(ExpressionExecutor[] attributeExpressionExecutors, ConfigReader configReader,
-                        SiddhiAppContext siddhiAppContext) {
+    protected StateFactory init(ExpressionExecutor[] attributeExpressionExecutors,
+                                ConfigReader configReader,
+                                SiddhiQueryContext siddhiQueryContext) {
         if (attributeExpressionExecutors.length != 1) {
             throw new IllegalArgumentException(
                     "Invalid no of arguments passed to sentiment:getRate() function, "
@@ -103,15 +90,21 @@ public class SentimentRate extends FunctionExecutor {
         } catch (IOException e) {
             LOGGER.error("Failed to load affinwords.txt file");
         }
-    }
-
-    @Override
-    protected Object execute(Object[] data) {
         return null;
     }
 
     @Override
-    protected Object execute(Object data) {
+    public Attribute.Type getReturnType() {
+        return Attribute.Type.INT;
+    }
+
+    @Override
+    protected Object execute(Object[] data, State state) {
+        return null;
+    }
+
+    @Override
+    protected Object execute(Object data, State state) {
         int rank = 0;
         String[] words = data.toString().split("\\W+");
         for (String word : words) {
@@ -126,7 +119,7 @@ public class SentimentRate extends FunctionExecutor {
         StringBuilder textChunk = new StringBuilder();
         InputStream in = getClass().getResourceAsStream("/" + fileName);
         BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
-            String line;
+        String line;
         try {
             while ((line = reader.readLine()) != null) {
                 textChunk.append(line).append("\n");
